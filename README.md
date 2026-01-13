@@ -1,31 +1,27 @@
-from selenium import webdriver # type: ignore
-from selenium.webdriver.common.by import By # type: ignore
-import time
+# Task 03 – Automated Login Testing
 
-driver = webdriver.Chrome()
-driver.maximize_window()
+## Objective
+Automate login functionality testing using Selenium WebDriver.
 
-driver.get("https://the-internet.herokuapp.com/login")
+## Tools Used
+- Python
+- Selenium
+- Google Chrome
 
-# POSITIVE TEST
-driver.find_element(By.ID, "username").send_keys("tomsmith")
-driver.find_element(By.ID, "password").send_keys("SuperSecretPassword!")
-driver.find_element(By.CSS_SELECTOR, "button[type='submit']").click()
-time.sleep(2)
-print("Positive login test passed")
+## Demo Website
+https://the-internet.herokuapp.com/login
 
-# NEGATIVE TEST - INVALID
-driver.get("https://the-internet.herokuapp.com/login")
-driver.find_element(By.ID, "username").send_keys("wronguser")
-driver.find_element(By.ID, "password").send_keys("wrongpass")
-driver.find_element(By.CSS_SELECTOR, "button[type='submit']").click()
-time.sleep(2)
-print("Invalid login test passed")
+## Test Scenarios
+- Valid login
+- Invalid login
+- Empty fields validation
 
-# NEGATIVE TEST - EMPTY
-driver.get("https://the-internet.herokuapp.com/login")
-driver.find_element(By.CSS_SELECTOR, "button[type='submit']").click()
-time.sleep(2)
-print("Empty field test passed")
+## How to Run
+1. Install Python
+2. Install dependencies:
+   pip install -r requirements.txt
+3. Run test:
+   python login_test.py
 
-driver.quit()
+## Result
+All test cases executed successfully.
